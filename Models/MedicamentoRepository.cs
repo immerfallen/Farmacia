@@ -1,4 +1,5 @@
 using MySql.Data.MySqlClient;
+using System.Collections.Generic;
 
 namespace Farmacia.Models
 {
@@ -10,19 +11,19 @@ namespace Farmacia.Models
             string sql = "INSERT INTO medicamentos (nome, descricao, valor, dosagem, qtdEstoque) VALUE (@nome, @descricao, @valor, @dosagem, @qtdEstoque)";
             MySqlCommand comando = new MySqlCommand(sql,conexao);
             comando.Parameters.AddWithValue("@nome",m.Nome);
-            comando.Parameters.AddWithValue("descricao",m.Descricao);
-            comando.Parameters.AddWithValue("valor",m.Valor);
-            comando.Parameters.AddWithValue("dosagem",m.Dosagem);
-            comando.Parameters.AddWithValue("qtdEstoque",m.QtdEstoque);
+            comando.Parameters.AddWithValue("@descricao",m.Descricao);
+            comando.Parameters.AddWithValue("@valor",m.Valor);
+            comando.Parameters.AddWithValue("@dosagem",m.Dosagem);
+            comando.Parameters.AddWithValue("@qtdEstoque",m.QtdEstoque);
 
             comando.ExecuteNonQuery();
 
             conexao.Close();
         }
 
-        /* public List<Clinica> Lista(int id){
+        public List<Medicamento> Lista(int id){
             conexao.Open();
-            string sql = "SELECT * FROM clinica " + (id > 0 ? "WHERE id = @id " : "") + "ORDER BY nome"; 
+            string sql = "SELECT * FROM medicamentos " + (id > 0 ? "WHERE id = @id " : "") + "ORDER BY nome"; 
             MySqlCommand comandoQuery = new MySqlCommand(sql,conexao);
             if(id>0)
             {
@@ -31,25 +32,35 @@ namespace Farmacia.Models
             }
             MySqlDataReader reader = comandoQuery.ExecuteReader();
 
-            List<Clinica> lista = new List<Clinica>();
+            List<Medicamento> lista = new List<Medicamento>();
 
             while (reader.Read()){
-                Clinica clinica = new Clinica();
-                clinica.Id = reader.GetInt32("Id");
+                Medicamento medicamento = new Medicamento();
+                medicamento.Id = reader.GetInt32("Id");
 
                 if(!reader.IsDBNull(reader.GetOrdinal("Nome")))
-                clinica.Nome = reader.GetString("Nome");
+                medicamento.Nome = reader.GetString("Nome");
 
-                if(!reader.IsDBNull(reader.GetOrdinal("Detalhes")))
-                clinica.Detalhes = reader.GetString("Detalhes");
-                lista.Add(clinica);
+                if(!reader.IsDBNull(reader.GetOrdinal("Descricao")))
+                medicamento.Descricao = reader.GetString("Descricao");
+
+                if(!reader.IsDBNull(reader.GetOrdinal("Valor")))
+                medicamento.Valor = reader.GetDecimal("Valor");
+
+                if(!reader.IsDBNull(reader.GetOrdinal("Dosagem")))
+                medicamento.Dosagem = reader.GetString("Dosagem");
+
+                if(!reader.IsDBNull(reader.GetOrdinal("QtdEstoque")))
+                medicamento.Descricao = reader.GetString("QtdEstoque");
+
+                lista.Add(medicamento);
             }
             conexao.Close();
             return lista;
         }
 
-        public List<Clinica> Lista(){
+        public List<Medicamento> Lista(){
             return Lista(0);
-        } */
+        }
     }
 }
