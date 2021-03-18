@@ -1,24 +1,26 @@
-using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 
 namespace Farmacia.Models
 {
-    public class ClinicaRepository : Repository
+    public class MedicamentoRepository : Repository
     {
-        public void Cadastra(Clinica c){
+         public void Cadastra(Medicamento m){
             conexao.Open();
 
-            string sql = "INSERT INTO clinica (nome, detalhes) VALUE (@nome, @detalhes)";
+            string sql = "INSERT INTO medicamentos (nome, descricao, valor, dosagem, qtdEstoque) VALUE (@nome, @descricao, @valor, @dosagem, @qtdEstoque)";
             MySqlCommand comando = new MySqlCommand(sql,conexao);
-            comando.Parameters.AddWithValue("@nome",c.Nome);
-            comando.Parameters.AddWithValue("detalhes",c.Detalhes);
+            comando.Parameters.AddWithValue("@nome",m.Nome);
+            comando.Parameters.AddWithValue("descricao",m.Descricao);
+            comando.Parameters.AddWithValue("valor",m.Valor);
+            comando.Parameters.AddWithValue("dosagem",m.Dosagem);
+            comando.Parameters.AddWithValue("qtdEstoque",m.QtdEstoque);
 
             comando.ExecuteNonQuery();
 
             conexao.Close();
         }
 
-        public List<Clinica> Lista(int id){
+        /* public List<Clinica> Lista(int id){
             conexao.Open();
             string sql = "SELECT * FROM clinica " + (id > 0 ? "WHERE id = @id " : "") + "ORDER BY nome"; 
             MySqlCommand comandoQuery = new MySqlCommand(sql,conexao);
@@ -48,6 +50,6 @@ namespace Farmacia.Models
 
         public List<Clinica> Lista(){
             return Lista(0);
-        }
+        } */
     }
 }
