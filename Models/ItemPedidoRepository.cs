@@ -20,9 +20,9 @@ namespace Farmacia.Models
            
         }
 
-        /* public List<Pedido> Lista(int id){
+        public List<ItemPedido> Lista(int id){
             conexao.Open();
-            string sql = "SELECT * FROM pedido " + (id > 0 ? "WHERE id = @id " : "") + "ORDER BY dataPedido"; 
+            string sql = "SELECT * FROM itempedido " + (id > 0 ? "WHERE id = @id " : "") + "ORDER BY id_pedido"; 
             MySqlCommand comandoQuery = new MySqlCommand(sql,conexao);
             if(id>0)
             {
@@ -31,30 +31,32 @@ namespace Farmacia.Models
             }
             MySqlDataReader reader = comandoQuery.ExecuteReader();
 
-            List<Pedido> lista = new List<Pedido>();
+            List<ItemPedido> lista = new List<ItemPedido>();
 
             while (reader.Read()){
-                Pedido pedido = new Pedido();
-                pedido.Id = reader.GetInt32("Id");
+                ItemPedido itempedido = new ItemPedido();
+                itempedido.Id = reader.GetInt32("Id");
 
-                if(!reader.IsDBNull(reader.GetOrdinal("dataPedido")))
-                pedido.DataPedido = reader.GetDateTime("dataPedido");
+                if(!reader.IsDBNull(reader.GetOrdinal("id_pedido")))
+                itempedido.Pedido = new Pedido();
+                itempedido.Pedido.Id = reader.GetInt32("id_pedido");
 
-                if(!reader.IsDBNull(reader.GetOrdinal("entregue")))
-                pedido.Entregue = reader.GetBoolean("entregue");
+                if(!reader.IsDBNull(reader.GetOrdinal("id_medicamento")))
+                itempedido.Medicamento = new Medicamento();
+                itempedido.Medicamento.Id = reader.GetInt32("id_medicamento");
 
-                if(!reader.IsDBNull(reader.GetOrdinal("id_clinica")))
-                pedido.Clinica = new Clinica();
-                pedido.Clinica.Id = reader.GetInt32("id_clinica");
-                lista.Add(pedido);
+                if(!reader.IsDBNull(reader.GetOrdinal("quantidade")))                
+                itempedido.Quantidade = reader.GetInt32("quantidade");
+               
+                lista.Add(itempedido);
             }
             conexao.Close();
             return lista;
         }
 
-        public List<Pedido> Lista(){
+        public List<ItemPedido> Lista(){
             return Lista(0);
-        } */
+        }
     }
     
 }

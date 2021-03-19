@@ -12,18 +12,12 @@ namespace Farmacia.Controllers
     public class HomeController : Controller
     {        
 
-        public IActionResult Index(ItemPedido ip)
+        public IActionResult Index(int id)
         {
             ItemPedidoRepository itempedirepo = new ItemPedidoRepository();          
-            
-            ip.Medicamento = new Medicamento();
-            ip.Pedido = new Pedido();   
-            ip.Id = 1;
-            ip.Medicamento.Id = 1;
-            ip.Pedido.Id = 1;        
-            ip.Quantidade = 3;
+            id =7;           
 
-            itempedirepo.Cadastra(ip);
+            itempedirepo.Lista(id);
                        
             return View();
         }
