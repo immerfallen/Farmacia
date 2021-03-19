@@ -20,34 +20,29 @@ namespace Farmacia.Models
            
         }
 
-        public List<ItemPedido> Lista(int id){
+        public List<ItemPedido> Lista(int idPedido){
             conexao.Open();
-            string sql = "SELECT * FROM itempedido " + (id > 0 ? "WHERE id = @id " : "") + "ORDER BY id_pedido"; 
-            MySqlCommand comandoQuery = new MySqlCommand(sql,conexao);
-            if(id>0)
-            {
-                comandoQuery.Parameters.AddWithValue("@id", id);
-
-            }
+            string sql = "SELECT ip.id as IdItemPedido, ip.id_pedido, ip.quantidade, m.id as IdMedicamento, m.nome, m.valor FROM itempedido ip JOIN medicamentos m ON ip.id_medicamento = m.id WHERE id_pedido = @idPedido"; 
+            MySqlCommand comandoQuery = new MySqlCommand(sql,conexao);            
+            comandoQuery.Parameters.AddWithValue("@idPedido", idPedido);            
             MySqlDataReader reader = comandoQuery.ExecuteReader();
 
             List<ItemPedido> lista = new List<ItemPedido>();
 
             while (reader.Read()){
                 ItemPedido itempedido = new ItemPedido();
-                itempedido.Id = reader.GetInt32("Id");
-
-                if(!reader.IsDBNull(reader.GetOrdinal("id_pedido")))
-                itempedido.Pedido = new Pedido();
-                itempedido.Pedido.Id = reader.GetInt32("id_pedido");
-
-                if(!reader.IsDBNull(reader.GetOrdinal("id_medicamento")))
-                itempedido.Medicamento = new Medicamento();
-                itempedido.Medicamento.Id = reader.GetInt32("id_medicamento");
-
-                if(!reader.IsDBNull(reader.GetOrdinal("quantidade")))                
+                itempedido.Id = reader.GetInt32("IdItemPedido");
                 itempedido.Quantidade = reader.GetInt32("quantidade");
-               
+                                
+                itempedido.Medicamento = new Medicamento();
+                itempedido.Medicamento.Id = reader.GetInt32("IdMedicamento");
+
+                if(!reader.IsDBNull(reader.GetOrdinal("nome")))
+                itempedido.Medicamento.Nome = reader.GetString("nome");
+
+                if(!reader.IsDBNull(reader.GetOrdinal("valor")))
+                itempedido.Medicamento.Valor = reader.GetDecimal("valor");                                            
+                              
                 lista.Add(itempedido);
             }
             conexao.Close();
@@ -60,3 +55,4 @@ namespace Farmacia.Models
     }
     
 }
+

@@ -14,8 +14,22 @@ namespace Farmacia.Controllers
 
         public IActionResult Index(int id)
         {
+
+            ItemPedido ip = new ItemPedido();
+            
+            ip.Quantidade = 3;  
+            ip.Pedido = new Pedido();
+            ip.Pedido.Id = 1;
+            ip.Medicamento = new Medicamento();
+            ip.Medicamento.Id = 1;
+            ip.Medicamento.Nome = "Citalgina";
+            ip.Medicamento.Valor = 15;
+
+           
+
             ItemPedidoRepository itempedirepo = new ItemPedidoRepository();          
-            id =7;           
+            id =7;
+                       
 
             itempedirepo.Lista(id);
                        
