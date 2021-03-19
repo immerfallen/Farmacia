@@ -1,4 +1,5 @@
 using MySql.Data.MySqlClient;
+using System.Collections.Generic;
 
 namespace Farmacia.Models
 {
@@ -20,9 +21,9 @@ namespace Farmacia.Models
             return idNovoPedido;
         }
 
-        /* public List<Clinica> Lista(int id){
+        public List<Pedido> Lista(int id){
             conexao.Open();
-            string sql = "SELECT * FROM clinica " + (id > 0 ? "WHERE id = @id " : "") + "ORDER BY nome"; 
+            string sql = "SELECT * FROM pedido " + (id > 0 ? "WHERE id = @id " : "") + "ORDER BY dataPedido"; 
             MySqlCommand comandoQuery = new MySqlCommand(sql,conexao);
             if(id>0)
             {
@@ -31,25 +32,29 @@ namespace Farmacia.Models
             }
             MySqlDataReader reader = comandoQuery.ExecuteReader();
 
-            List<Clinica> lista = new List<Clinica>();
+            List<Pedido> lista = new List<Pedido>();
 
             while (reader.Read()){
-                Clinica clinica = new Clinica();
-                clinica.Id = reader.GetInt32("Id");
+                Pedido pedido = new Pedido();
+                pedido.Id = reader.GetInt32("Id");
 
-                if(!reader.IsDBNull(reader.GetOrdinal("Nome")))
-                clinica.Nome = reader.GetString("Nome");
+                if(!reader.IsDBNull(reader.GetOrdinal("dataPedido")))
+                pedido.DataPedido = reader.GetDateTime("dataPedido");
 
-                if(!reader.IsDBNull(reader.GetOrdinal("Detalhes")))
-                clinica.Detalhes = reader.GetString("Detalhes");
-                lista.Add(clinica);
+                if(!reader.IsDBNull(reader.GetOrdinal("entregue")))
+                pedido.Entregue = reader.GetBoolean("entregue");
+
+                if(!reader.IsDBNull(reader.GetOrdinal("id_clinica")))
+                pedido.Clinica = new Clinica();
+                pedido.Clinica.Id = reader.GetInt32("id_clinica");
+                lista.Add(pedido);
             }
             conexao.Close();
             return lista;
         }
 
-        public List<Clinica> Lista(){
+        public List<Pedido> Lista(){
             return Lista(0);
-        } */
+        }
     }
 }
