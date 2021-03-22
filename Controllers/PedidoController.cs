@@ -57,7 +57,32 @@ namespace Farmacia.Controllers
             
             return View();
         }
-       
+
+        public IActionResult Lista(){
+            PedidoRepository pedidoRepo = new PedidoRepository();
+            List<Pedido> pedidos = pedidoRepo.Lista();
+
+            return View(pedidos);
+        }
+
+        public IActionResult Detalhe(int id){
+            Pedido pedido = null;
+            PedidoRepository pedidoRepo = new PedidoRepository();
+            List<Pedido> pedidos = pedidoRepo.Lista(id);
+            if(pedidos != null && pedidos.Count > 0)
+            {
+                pedido = pedidos[0];
+
+                ClinicaRepository clinicaRepo = new ClinicaRepository();
+                List<Clinica> clinicas = clinicaRepo.Lista(pedido.Clinica.Id);
+                pedido.Clinica = clinicas[0];
+
+                ItemPedidoRepository itemPedidoRepo = new ItemPedidoRepository();
+                List<ItemPedido> itens = itemPedidoRepo.Lista(pedido.Id);
+                pedido.Itens = itens;
+            }
+            return View(pedido);
+        }      
 
     }
 }

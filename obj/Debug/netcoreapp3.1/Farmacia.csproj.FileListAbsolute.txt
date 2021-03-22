@@ -52,3 +52,5 @@ C:\Users\Engenharia\Desktop\Maro\Farmacia\obj\Debug\netcoreapp3.1\Razor\Views\Me
 C:\Users\Engenharia\Desktop\Maro\Farmacia\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Users\Engenharia\Desktop\Maro\Farmacia\obj\Debug\netcoreapp3.1\Razor\Views\Pedido\FecharPedido.cshtml.g.cs
 C:\Users\Engenharia\Desktop\Maro\Farmacia\obj\Debug\netcoreapp3.1\Razor\Views\Pedido\Sacola.cshtml.g.cs
+C:\Users\Engenharia\Desktop\Maro\Farmacia\obj\Debug\netcoreapp3.1\Razor\Views\Pedido\Detalhe.cshtml.g.cs
+C:\Users\Engenharia\Desktop\Maro\Farmacia\obj\Debug\netcoreapp3.1\Razor\Views\Pedido\Lista.cshtml.g.cs

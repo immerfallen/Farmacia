@@ -14430,6 +14430,16 @@
       "FilePath": "c:\\Users\\Engenharia\\Desktop\\Maro\\Farmacia\\Views\\Medicamento\\Lista.cshtml",
       "TargetPath": "Views\\Medicamento\\Lista.cshtml",
       "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Engenharia\\Desktop\\Maro\\Farmacia\\Views\\Pedido\\Lista.cshtml",
+      "TargetPath": "Views\\Pedido\\Lista.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Engenharia\\Desktop\\Maro\\Farmacia\\Views\\Pedido\\Detalhe.cshtml",
+      "TargetPath": "Views\\Pedido\\Detalhe.cshtml",
+      "FileKind": "mvc"
     }
   ],
   "SerializationFormat": "0.2"

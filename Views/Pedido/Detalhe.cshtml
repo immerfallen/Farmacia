@@ -1,0 +1,31 @@
+@model Pedido
+@{
+    ViewData["Title"] = "Detalhes do pedido";
+}
+
+<h2>Pedido @Model.Id</h2>
+<ul>
+    <li><strong>Clínica</strong>@Model.Clinica.Nome</li>
+    <li><strong>Data</strong>@Model.DataPedido</li>
+    <li><strong>Entregue</strong>@Model.Entregue</li>
+    <li><strong>Itens</strong></li>
+    <table>
+        <tr>
+            <th>Medicamento</th> <th>Valor</th> <th>Quantidade</th>
+        </tr>
+        @foreach (ItemPedido item in Model.Itens)
+        {
+            <tr>
+                <td>
+                    @item.Medicamento.Nome
+                </td>
+                 <td>
+                    @item.Medicamento.Valor
+                </td>
+                 <td>
+                    @item.Quantidade
+                </td>
+            </tr>
+        }        
+    </table>
+</ul>
