@@ -14402,6 +14402,16 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Engenharia\\Desktop\\Maro\\Farmacia\\Views\\Pedido\\Sacola.cshtml",
+      "TargetPath": "Views\\Pedido\\Sacola.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Engenharia\\Desktop\\Maro\\Farmacia\\Views\\Pedido\\FecharPedido.cshtml",
+      "TargetPath": "Views\\Pedido\\FecharPedido.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Engenharia\\Desktop\\Maro\\Farmacia\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"

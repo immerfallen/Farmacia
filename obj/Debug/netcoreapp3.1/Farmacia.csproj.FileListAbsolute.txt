@@ -50,3 +50,5 @@ C:\Users\Engenharia\Desktop\Maro\Farmacia\bin\Debug\netcoreapp3.1\System.Xml.XPa
 C:\Users\Engenharia\Desktop\Maro\Farmacia\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Engenharia\Desktop\Maro\Farmacia\obj\Debug\netcoreapp3.1\Razor\Views\Medicamento\Lista.cshtml.g.cs
 C:\Users\Engenharia\Desktop\Maro\Farmacia\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Engenharia\Desktop\Maro\Farmacia\obj\Debug\netcoreapp3.1\Razor\Views\Pedido\FecharPedido.cshtml.g.cs
+C:\Users\Engenharia\Desktop\Maro\Farmacia\obj\Debug\netcoreapp3.1\Razor\Views\Pedido\Sacola.cshtml.g.cs
