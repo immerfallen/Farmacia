@@ -14415,6 +14415,11 @@
       "FilePath": "c:\\Users\\Engenharia\\Desktop\\Maro\\Farmacia\\Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Engenharia\\Desktop\\Maro\\Farmacia\\Views\\Medicamento\\Lista.cshtml",
+      "TargetPath": "Views\\Medicamento\\Lista.cshtml",
+      "FileKind": "mvc"
     }
   ],
   "SerializationFormat": "0.2"

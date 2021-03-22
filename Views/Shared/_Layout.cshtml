@@ -12,6 +12,15 @@
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Farmacia</a>
+                <div style="float:right;">
+                    @if(Context.Session.GetString("sacola") !=null)
+                    {
+                        List<ItemPedido> itensSacola = JsonConvert.DeserializeObject<List<ItemPedido>>(Context.Session.GetString("sacola"));
+                            <a href="/Pedido/Sacola">@itensSacola.Count itens na sacola</a>
+                    } else {
+                        <span>Sacola vazia</span>
+                    }
+                </div>
             </nav>
     </header>
     <div class="container">

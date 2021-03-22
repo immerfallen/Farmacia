@@ -1,0 +1,27 @@
+@model List<Medicamento>
+
+@{
+ ViewData["Title"] = "Lista de Medicamentos";
+}
+<h2>Adicione os medicamento ao pedido</h2>
+<table>
+        <thead>
+            <tr>
+                <th>Nome</th> <th>Valor</th> <th>Quantidade</th> <th>Ação</th>
+            </tr>
+        </thead>
+    
+        @foreach(Medicamento medicamento in Model){
+            <tr>
+            <td>@medicamento.Nome </td>    
+            <td>@medicamento.Valor </td> 
+            <form asp-action="AdicionaSacola" method="POST">
+                <input type="hidden" name="Medicamento.Id" value="@medicamento.Id">
+                <td><input type="number" name="Quantidade"></td>
+                <td><input type="submit" name="Adicionar"></td>
+            </form>   
+                
+            </tr>    
+        } 
+    
+</table>

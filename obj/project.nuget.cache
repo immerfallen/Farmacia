@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "L+LgAcniKoVt8xWnUQowbXRUMpHr/56USMOqe8/DJLEY3lu+lmsmSqk+M+xio4RmSRKpapY/ttIU42KtEbzd4g==",
+  "dgSpecHash": "hkpqkIPnfruJlC2BYkxNvMmOB4l7zoipJl9Q5JEkXZBoMZWX7hoi2jvFAIMVxcKZUaOTXgE5EkxOdl01no/rSg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Engenharia\\Desktop\\Maro\\Farmacia\\Farmacia.csproj",
   "expectedPackageFiles": [
@@ -17,6 +17,7 @@
     "C:\\Users\\Engenharia\\.nuget\\packages\\mysql.data\\8.0.22\\mysql.data.8.0.22.nupkg.sha512",
     "C:\\Users\\Engenharia\\.nuget\\packages\\mysqlconnector\\1.3.1\\mysqlconnector.1.3.1.nupkg.sha512",
     "C:\\Users\\Engenharia\\.nuget\\packages\\netstandard.library\\1.6.0\\netstandard.library.1.6.0.nupkg.sha512",
+    "C:\\Users\\Engenharia\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\Engenharia\\.nuget\\packages\\runtime.native.system\\4.0.0\\runtime.native.system.4.0.0.nupkg.sha512",
     "C:\\Users\\Engenharia\\.nuget\\packages\\runtime.native.system.io.compression\\4.1.0\\runtime.native.system.io.compression.4.1.0.nupkg.sha512",
     "C:\\Users\\Engenharia\\.nuget\\packages\\runtime.native.system.net.http\\4.0.1\\runtime.native.system.net.http.4.0.1.nupkg.sha512",
